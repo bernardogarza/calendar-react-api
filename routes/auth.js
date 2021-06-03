@@ -14,8 +14,8 @@ router.post(
   '/new',
   [
     check('name', 'The name is required').not().isEmpty(),
-    check('email', 'Email is required').isEmail(),
-    check('password', 'Password must be at least 6 characters long').isLength({ min: 6 }),
+    check('email', 'Invalid email').isEmail(),
+    check('password', 'Password must be at least 6 characters').isLength({ min: 6 }),
     validator,
   ],
   createUser,
