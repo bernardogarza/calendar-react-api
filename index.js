@@ -1,10 +1,13 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import authRouter from './routes/auth.js';
+import { dbConnection } from './db/config.js';
 
 dotenv.config();
 
 const app = express();
+
+dbConnection();
 
 app.use(express.static('public'));
 
