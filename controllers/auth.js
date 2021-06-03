@@ -2,6 +2,7 @@ import { response } from 'express';
 
 export const createUser = (req, res = response) => {
   const { name, email, password } = req.body;
+
   res.json({
     ok: true,
     msg: 'register',
