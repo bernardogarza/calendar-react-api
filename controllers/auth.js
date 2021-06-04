@@ -33,7 +33,7 @@ export const createUser = async (req, res = response) => {
 
     res.status(500).json({
       ok: false,
-      msg: 'Please contact the page administrator.',
+      msg: 'Please contact the site administrator.',
     });
   }
 };
@@ -54,7 +54,7 @@ export const loginUser = async (req, res = response) => {
     if (!validPassword) {
       return res.status(400).json({
         ok: false,
-        msg: "Password doens't match.",
+        msg: 'Email or password incorrect.',
       });
     }
     res.status(201).json({
@@ -67,7 +67,7 @@ export const loginUser = async (req, res = response) => {
 
     res.status(500).json({
       ok: false,
-      msg: 'Please contact the page administrator.',
+      msg: 'Please contact the site administrator.',
     });
   }
 };
