@@ -2,7 +2,7 @@ import mongoose from 'mongoose';
 
 const { Schema, model } = mongoose;
 
-export const UserSchema = Schema({
+const UserSchema = Schema({
   name: {
     type: String,
     require: true,
