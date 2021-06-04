@@ -38,15 +38,38 @@ export const createUser = async (req, res = response) => {
   }
 };
 
-export const loginUser = (req, res = response) => {
+export const loginUser = async (req, res = response) => {
   const { email, password } = req.body;
 
-  res.status(201).json({
-    ok: true,
-    msg: 'login',
-    email,
-    password,
-  });
+  try {
+    const user = await User.findOne({ email });
+
+    if (!user) {
+      return res.status(400).json({
+        ok: false,
+        msg: 'Email or password incorrect.',
+      });
+    }
+    const validPassword = bcrypt.compareSync(password, user.password);
+    if (!validPassword) {
+      return res.status(400).json({
+        ok: false,
+        msg: "Password doens't match.",
+      });
+    }
+    res.status(201).json({
+      ok: true,
+      uid: user.id,
+      name: user.name,
+    });
+  } catch (error) {
+    console.log(error);
+
+    res.status(500).json({
+      ok: false,
+      msg: 'Please contact the page administrator.',
+    });
+  }
 };
 
 export const renewToken = (req, res = response) => {
