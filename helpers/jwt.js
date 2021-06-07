@@ -1,5 +1,12 @@
 import jwt from 'jsonwebtoken';
 
+/**
+ *
+ * @param {string} uid - user id
+ * @param {string} name - user name
+ * @returns promise
+ */
+
 export const generateJWT = (uid, name) => {
   return new Promise((resolve, reject) => {
     const payload = { uid, name };

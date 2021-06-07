@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import { check } from 'express-validator';
 import { createUser, loginUser, renewToken } from '../controllers/auth.js';
+import { jwtValidator } from '../middlewares/jwt-validator.js';
 import { validator } from '../middlewares/validator.js';
 
 /**
@@ -31,6 +32,6 @@ router.post(
   loginUser,
 );
 
-router.get('/renew', renewToken);
+router.get('/renew', jwtValidator, renewToken);
 
 export default router;
