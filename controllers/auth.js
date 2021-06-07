@@ -50,13 +50,16 @@ export const loginUser = async (req, res = response) => {
         msg: 'Email or password incorrect.',
       });
     }
+
     const validPassword = bcrypt.compareSync(password, user.password);
+
     if (!validPassword) {
       return res.status(400).json({
         ok: false,
         msg: 'Email or password incorrect.',
       });
     }
+
     res.status(201).json({
       ok: true,
       uid: user.id,
