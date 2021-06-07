@@ -6,25 +6,24 @@ export const getEvents = (req, res = response) => {
     msg: 'getEvents',
   });
 };
+
 export const createEvent = (req, res = response) => {
   res.json({
     ok: true,
     msg: 'createEvent',
   });
 };
+
 export const updateEvent = (req, res = response) => {
   res.json({
     ok: true,
     msg: 'updateEvent',
   });
 };
+
 export const deleteEvent = (req, res = response) => {
   res.json({
     ok: true,
     msg: 'deleteEvent',
   });
 };
-
-// {ok: true,
-// msg:'get events',
-// }
