@@ -3,6 +3,7 @@ import { jwtValidator } from '../middlewares/jwt-validator.js';
 import { check } from 'express-validator';
 import { createEvent, deleteEvent, getEvents, updateEvent } from '../controllers/events.js';
 import { validator } from '../middlewares/validator.js';
+import { isDate } from '../helpers/isDate.js';
 
 /**
  * Event Routes
@@ -20,8 +21,8 @@ router.post(
   '/',
   [
     check('title', 'Title is required.').not().isEmpty(),
-    check('start', 'Start date is required.').isDate(),
-    check('end', 'End date is required.').isDate(),
+    check('start', 'Start date is required.').custom(isDate),
+    check('end', 'End date is required.').custom(isDate),
     validator,
   ],
   createEvent,
