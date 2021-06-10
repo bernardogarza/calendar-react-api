@@ -32,8 +32,8 @@ router.put(
   '/:id',
   [
     check('title', 'Title is required.').not().isEmpty(),
-    check('start', 'Start date is required.').isDate(),
-    check('end', 'End date is required.').isDate(),
+    check('start', 'Start date is required.').custom(isDate),
+    check('end', 'End date is required.').custom(isDate),
     validator,
   ],
   updateEvent,
