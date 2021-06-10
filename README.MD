@@ -2,7 +2,7 @@
 
 This is the backend for my Calendar React project. It's built with Mongo, Express and Node.
 
-You can find the app repo here: https://github.com/bernardogarza/calendar-react-api
+You can find the app repo here: https://github.com/bernardogarza/calendar-react-app
 
 
 
